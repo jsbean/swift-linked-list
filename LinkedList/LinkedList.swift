@@ -7,23 +7,6 @@
 //
 
 
-/// Node in LinkedList structure
-public class LinkedListNode <T> {
-    
-    // MARK: - Instance Properties
-    
-    var value: T
-    var next: LinkedListNode?
-    weak var previous: LinkedListNode?
-    
-    // MARK: - Initializers
-    
-    public init(value: T) {
-        self.value = value
-    }
-    
-}
-
 /// Doubly LinkedList structure
 public class LinkedList <T> {
     
@@ -31,28 +14,31 @@ public class LinkedList <T> {
     
     // MARK: - Instance Properties
     
+    /// The head node of the list
     private var head: Node?
     
     public var first: Node? {
         return head
     }
     
+    /// The tail node of the list
     private var tail: Node?
     
     public var last: Node? {
         return tail
     }
     
-    public var tally: Int
+    /// The number of nodes in the list
+    public var count: Int
     
     // MARK: - Initializers
     
     /// Create an empty list
-    public init() { tally = 0 }
+    public init() { count = 0 }
     
     /// Returns the number of nodes in the list
-    public var count: Int {
-        return tally
+    public var tally: Int {
+        return count
     }
     
     // MARK: - Instance Methods
@@ -63,7 +49,6 @@ public class LinkedList <T> {
         
         let newNode = Node(value: value)
         
-        // If the list is not empty
         if let lastNode = last {
             newNode.previous = lastNode
             lastNode.next = newNode
@@ -72,13 +57,13 @@ public class LinkedList <T> {
             head = newNode
             tail = newNode
         }
-        tally += 1
+        count += 1
     }
     
     // Returns node at given index
     public func nodeAt(_ index: Int) -> Node? {
         
-        if index <= tally/2 {
+        if index <= count/2 {
             var node = head
             var i = index
             
@@ -87,10 +72,9 @@ public class LinkedList <T> {
                 i -= 1
                 node = node!.next
             }
-        }
-        else {
+        } else {
             var node = tail
-            var i = (tally-1) - index
+            var i = (count-1) - index
             
             while node != nil {
                 if i == 0 { return node }
@@ -105,7 +89,8 @@ public class LinkedList <T> {
     private func nodesBeforeAndAfter(index: Int) -> (Node?, Node?) {
         
         assert(index >= 0)
-        if(index <= tally/2) {
+        
+        if(index <= count/2) {
             var i = index
             var next = head
             var prev: Node?
@@ -117,9 +102,8 @@ public class LinkedList <T> {
             }
             assert (i == 0)
             return (prev, next)
-        }
-        else {
-            var i = tally - index
+        } else {
+            var i = count - index
             var prev = tail
             var next: Node?
             
@@ -137,8 +121,8 @@ public class LinkedList <T> {
     public func insert(value: T, index: Int) {
         
         let (prev, next) = nodesBeforeAndAfter(index: index)
-        
         let newNode = Node(value: value)
+        
         newNode.previous = prev
         newNode.next = next
         prev?.next = newNode
@@ -151,7 +135,7 @@ public class LinkedList <T> {
         if next == nil {
             tail = newNode
         }
-        tally += 1
+        count += 1
     }
     
     /// Remove an individual node
@@ -171,11 +155,10 @@ public class LinkedList <T> {
         } else {
             tail = prev
         }
-        
         node.previous = nil
         node.next = nil
-        tally -= 1
         
+        count -= 1
         return node.value
     }
     
@@ -184,13 +167,15 @@ public class LinkedList <T> {
         
         head = nil
         tail = nil
-        tally = 0
+        
+        count = 0
     }
     
     /// Returns element at given `index`
     public subscript(index: Int) -> T? {
         
         let node = nodeAt(index)
+        
         if(node != nil) {
             return node!.value
         }

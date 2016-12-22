@@ -83,6 +83,7 @@ class LinkedListTests: XCTestCase {
     }
     
     func testRemoveHead() {
+        
         let list = LinkedList<String>()
         list.append(value: "a")
         list.append(value: "b")
@@ -108,5 +109,23 @@ class LinkedListTests: XCTestCase {
         list.removeAll()
         
         XCTAssertEqual(list.count, 0)
+    }
+    
+    func testCount() {
+        
+        let list = LinkedList<String>()
+        XCTAssertEqual(list.tally, 0)
+        
+        list.append(value: "a")
+        XCTAssertEqual(list.tally, 1)
+        
+        list.append(value: "c")
+        XCTAssertEqual(list.tally, 2)
+        
+        list.insert(value: "b", index: 1)
+        XCTAssertEqual(list.tally, 3)
+        
+        let _ = list.remove(node: list.nodeAt(2)!)
+        XCTAssertEqual(list.tally, 2)
     }
 }
