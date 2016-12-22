@@ -50,12 +50,13 @@ public class LinkedList <T> {
     /// Create an empty list
     public init() { tally = 0 }
     
-    // MARK: - Instance Methods
-    
     /// Returns the number of nodes in the list
     public var count: Int {
         return tally
     }
+    
+    // MARK: - Instance Methods
+
     
     /// Append a node to end of the list
     public func append(value: T) {
