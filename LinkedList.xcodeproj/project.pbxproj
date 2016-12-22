@@ -10,6 +10,7 @@
 		6AF0DA8F1E0BB0920018C033 /* LinkedList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF0DA851E0BB0920018C033 /* LinkedList.framework */; };
 		6AF0DA941E0BB0920018C033 /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0DA931E0BB0920018C033 /* LinkedListTests.swift */; };
 		6AF0DA961E0BB0920018C033 /* LinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF0DA881E0BB0920018C033 /* LinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AF0DAA21E0BB2B80018C033 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0DAA11E0BB2B80018C033 /* LinkedList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		6AF0DA8E1E0BB0920018C033 /* LinkedListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkedListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF0DA931E0BB0920018C033 /* LinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListTests.swift; sourceTree = "<group>"; };
 		6AF0DA951E0BB0920018C033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AF0DAA11E0BB2B80018C033 /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				6AF0DA881E0BB0920018C033 /* LinkedList.h */,
 				6AF0DA891E0BB0920018C033 /* Info.plist */,
+				6AF0DAA11E0BB2B80018C033 /* LinkedList.swift */,
 			);
 			path = LinkedList;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 					6AF0DA841E0BB0920018C033 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = T4DNLC59YR;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					6AF0DA8D1E0BB0920018C033 = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF0DAA21E0BB2B80018C033 /* LinkedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +324,7 @@
 		6AF0DA9A1E0BB0920018C033 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -333,6 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeremycorren.LinkedList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -340,6 +347,7 @@
 		6AF0DA9B1E0BB0920018C033 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -361,6 +369,7 @@
 		6AF0DA9D1E0BB0920018C033 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T4DNLC59YR;
 				INFOPLIST_FILE = LinkedListTests/Info.plist;
@@ -374,6 +383,7 @@
 		6AF0DA9E1E0BB0920018C033 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = T4DNLC59YR;
 				INFOPLIST_FILE = LinkedListTests/Info.plist;
@@ -403,6 +413,7 @@
 				6AF0DA9B1E0BB0920018C033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AF0DA9C1E0BB0920018C033 /* Build configuration list for PBXNativeTarget "LinkedListTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +422,7 @@
 				6AF0DA9E1E0BB0920018C033 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
