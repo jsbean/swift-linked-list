@@ -6,41 +6,66 @@
 //
 //
 
-private enum ListNode<Element> {
-    case End
-    indirect case Node(Element, next: ListNode<Element>)
+
+fileprivate enum ListNode<Element> {
+
+    /// Last node in `List`.
+    case end
     
-    func cons(x: Element) -> ListNode<Element> {
-        return .Node(x, next: self)
+    /// Node with pointer to next node.
+    indirect case node(Element, next: ListNode<Element>)
+    
+    /// Construct a new list with the given `value` held by a node at the front.
+    func cons(_ value: Element) -> ListNode<Element> {
+        return .node(value, next: self)
     }
 }
 
+/// Container with reference to a given `ListNode`.
 public struct ListIndex<Element> {
-    private let node: ListNode<Element>
+    
+    /// `ListNode` reference.
+    fileprivate let node: ListNode<Element>
 }
 
+/// Linked list containing `ListNode` values.
 public struct List<Element> {
+    
+    // MARK: - Associated Types
+    
+    /// Index type.
     public typealias Index = ListIndex<Element>
+    
+    /// Start index.
     public var startIndex: Index
     
-    // since this is a constant, no need to store it in a variable,
-    // so use a computed property instead to save space
-    public var endIndex: Index { return Index(node: .End) }
+    /// End index.
+    public var endIndex: Index {
+        return Index(node: .end)
+    }
     
+    // MARK: - Initializers
+    
+    /// Create an empty `List`
     public init() {
-        startIndex = Index(node: .End)
+        startIndex = Index(node: .end)
     }
 }
 
-
 extension List {
+
+    /// Push a `ListNode` holding the given `value` onto the front of the list.
     public mutating func push(x: Element) {
         startIndex = Index(node: startIndex.node.cons(x))
     }
     
+    /// - returns: The element contained by the `ListNode` at the front of the list, if the
+    /// list is not empty. Otherwise, `nil`.
     public mutating func pop() -> Element? {
-        guard case let .Node(x, next: xs) = startIndex.node
-            else { return nil }
+        
+        guard case let .node(x, next: xs) = startIndex.node else {
+            return nil
+        }
         
         startIndex = Index(node: xs)
         return x
@@ -48,6 +73,10 @@ extension List {
 }
 
 extension List: ExpressibleByArrayLiteral {
+    
+    // - MARK: `ExpressibleByArrayLiteral`
+    
+    /// Create a `List` with an array literal.
     public init(arrayLiteral elements: Element...) {
         self = List()
         for x in elements.reversed() { push(x: x) }
