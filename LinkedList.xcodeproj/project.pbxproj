@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6ABF46821E0F20CD0066B4DD /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF46811E0F20CD0066B4DD /* List.swift */; };
 		6AF0DA8F1E0BB0920018C033 /* LinkedList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF0DA851E0BB0920018C033 /* LinkedList.framework */; };
 		6AF0DA941E0BB0920018C033 /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF0DA931E0BB0920018C033 /* LinkedListTests.swift */; };
 		6AF0DA961E0BB0920018C033 /* LinkedList.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF0DA881E0BB0920018C033 /* LinkedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6ABF46811E0F20CD0066B4DD /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		6AF0DA851E0BB0920018C033 /* LinkedList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LinkedList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF0DA881E0BB0920018C033 /* LinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedList.h; sourceTree = "<group>"; };
 		6AF0DA891E0BB0920018C033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				6AF0DA881E0BB0920018C033 /* LinkedList.h */,
 				6AF0DA891E0BB0920018C033 /* Info.plist */,
 				6AF0DAA11E0BB2B80018C033 /* LinkedList.swift */,
+				6ABF46811E0F20CD0066B4DD /* List.swift */,
 			);
 			path = LinkedList;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AF0DAA21E0BB2B80018C033 /* LinkedList.swift in Sources */,
+				6ABF46821E0F20CD0066B4DD /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
