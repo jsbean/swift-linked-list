@@ -6,7 +6,7 @@
 //
 //
 
-
+/// Node in a `List`.
 fileprivate enum ListNode<Element> {
 
     /// Last node in `List`.
@@ -35,6 +35,8 @@ public struct List<Element> {
     
     /// Index type.
     public typealias Index = ListIndex<Element>
+    
+    // MARK: - Instance Properties
     
     /// Start index.
     public var startIndex: Index
